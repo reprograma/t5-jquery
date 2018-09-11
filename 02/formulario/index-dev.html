@@ -1,0 +1,91 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery - Reprograma</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+    <script>
+    
+        $(document).ready(function() {
+            $('input').focus(function () {
+                $(this).css("border", "1px dotted #777");
+            });
+
+            
+        })
+
+    </script>
+</head>
+
+<body>
+
+    <form action="index.html" method="post">
+
+        <h1>Cadastre-se</h1>
+
+        <fieldset>
+            <legend>
+                <span class="number">1</span>Informações Básicas</legend>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="user_name">
+
+            <label for="mail">Email:</label>
+            <input type="email" id="mail" name="user_email">
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="user_password">
+
+            <label>Idade:</label>
+            <input type="radio" id="under_13" value="under_13" name="user_age">
+            <label for="under_13" class="light">Abaixo de 30</label>
+            <br>
+            <input type="radio" id="over_13" value="over_13" name="user_age">
+            <label for="over_13" class="light">Igual ou Acima de 30</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <span class="number">2</span>Perfil</legend>
+        </fieldset>
+        <fieldset>
+            <label for="job">Perfil Profissional:</label>
+            <select id="job" name="user_job">
+                <optgroup label="Web">
+                    <option value="frontend_developer">Front-End Developer</option>
+                    <option value="php_developor">PHP Developer</option>
+                    <option value="python_developer">Java Developer</option>
+                    <option value="rails_developer"> Rails Developer</option>
+                    <option value="web_designer">Web Designer</option>
+                    <option value="WordPress_developer">WordPress Developer</option>
+                </optgroup>
+                <optgroup label="Mobile">
+                    <option value="Android_developer">Android Developer</option>
+                    <option value="iOS_developer">iOS Developer</option>
+                    <option value="mobile_designer">Ionic Designer</option>
+                </optgroup>
+                <optgroup label="Outros">
+                    <option value="secretary">UX</option>
+                    <option value="maintenance">UI</option>
+                </optgroup>
+            </select>
+
+            <label>Interesses:</label>
+            <input type="checkbox" id="development" value="interest_development" name="user_interest">
+            <label class="light" for="development">Desenvolvimento</label>
+            <br>
+            <input type="checkbox" id="design" value="interest_design" name="user_interest">
+            <label class="light" for="design">Design</label>
+            <br>
+            <input type="checkbox" id="business" value="interest_business" name="user_interest">
+            <label class="light" for="business">Negócios</label>
+
+        </fieldset>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+</body>
+
+</html>

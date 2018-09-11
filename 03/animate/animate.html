@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // adiciona o estilo para todos os links
+            $("a").on('click', function (event) {
+                // verificar se a hash correspondente existe
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+                    var hash = this.hash;
+
+                    // adiciona o efeito na página
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+                        // adiciona a hash na url
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+    <style>
+        body,
+        html,
+        .main {
+            height: 100%;
+        }
+        section {
+            min-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#section2">Seção 2</a>
+    <br>
+    <a href="#section3">Seção 3</a>
+    <div class="main">
+        <section></section>
+    </div>
+    <div class="main" id="section2">
+        <section style="background-color:blue"></section>
+    </div>
+    <div class="main" id="section3">
+        <section style="background-color:red"></section>
+    </div>
+
+</body>
+
+</html>

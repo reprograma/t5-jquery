@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<title>Tooltip</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style>
+	#container
+	{
+		width:80%;
+		margin:0px auto;
+	}
+	p{
+		font-size: 20px;
+		text-align: justify;
+		line-height: 2;
+		padding:5px;
+	}
+	a,a:visited{
+		text-decoration: none;
+		font-size: 25px;
+		color:purple;
+		position:relative;
+		display: inline-block;
+	}
+	.tooltip
+	{
+		display:none;
+		width:100px;
+		height:40px;
+		background-color: purple;
+		color:white;
+		font-size: 18px;
+		text-align: center;
+		border-radius: 20px;
+		position:absolute;
+		bottom:100%;
+		left:50%;
+		margin-left:-50px;
+	}
+	.tooltip::after
+	{
+		content:"";
+		position:absolute;
+		top:100%;
+		left:50%;
+		border-width: 15px;
+		margin-left:-15px;
+		border-style:solid;
+		border-color: purple transparent transparent transparent;
+	}
+	
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("a").append("<span class='tooltip'></span>");
+		$("a").hover(function(){
+				$(this).find("span").fadeIn(200);
+				var capital = $(this).attr("title");
+				$(this).find("span").text(capital);
+			}
+			, function(){
+				$(this).find("span").fadeOut(1000);
+		});
+	});
+</script>
+</head>
+<body>
+<div id="container">
+  <div>
+     <p> Aenean vehicula gravida elit id facilisis. Donec pharetra aliquam aliquet.
+	 Suspendisse potenti. Suspendisse iaculis, orci vel ultricies tristique, sapien
+	 lacus adipiscing dolor. Praesent pellentesque odio et sapien accumsan posuere.
+	  Nam <a href="#" title="New Delhi">India</a> congue condimentum.   Vivamus ut mauris
+	  lorem, sit amet ullamcorper nulla. Maecenas augue enim, sollicitudin
+	  Aliquam a dolor quis sapien viverra <a href="#" title="Bangkok">Thailand</a>
+	  eget a   metus. Curabitur non enim risus. Phasellus nec massa non justo vehicula
+	  consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget
+	  nisi eu nunc dapibus vestibulum. Duis dictum turpis a mi convallis eget laoreet metus
+	  laoreet. Sed mattis ligula a diam varius <a href="#" title="Jerusalem">Israel</a>.
+	  Sed non magna risus, at elementum nunc. Nullam sit amet massa felis, eget varius purus.
+	  Quisque tellus augue, tempor nec   accumsan ac, luctus vel libero. Cras eu tristique quam. </p>
+      <p>Sed in arcu at nisl volutpat scelerisque   sed id diam. Nam eget lorem quis nibh faucibus euismod.
+	  Cras feugiat <a href="#" title="Beijing">China</a> ultricies.
+	  Quisque quis est mauris, sed dapibus ipsum. Nulla sed ante 
+	  ipsum, id ultricies massa. Nunc sollicitudin, tortor sed mattis   consectetur, sem dolor
+	  consequat dui, <a href="#" title="Rome">Italy</a> sodales elit lorem vel   neque.
+	  Etiam ut leo sed nunc sagittis malesuada sit amet porta metus.   Praesent faucibus lorem
+	  sit amet mauris egestas molestie. Duis vel nunc   sed tortor vulputate faucibus. </p>
+      <p> Mauris <a href="#" title="Berlin">Germany</a> nulla eget lacus commodo
+	  lacinia vulputate est   elementum. Vestibulum vulputate, lectus eget posuere interdum,
+	  tellus   est mattis odio, sed vehicula augue enim sit amet metus. Nquam commodo pretium.
+	  Pellentesque congue <a href="#" title="London">United Kingdom</a> imperdiet.
+      Phasellus pulvinar  ornare pharetra. Phasellus vitae lobortis elit.
+	  Nunc gravida ultrices elit elementum ultricies. Curabitur sed enim ac nibh tempus viverra ut
+	  <a href="#" title="Paris">France</a> leo.   Integer aliquam condimentum enim,
+	  sit amet tincidunt metus ultrices sit amet. Nulla at purus non lorem   varius tincidunt at ut nunc. 
+	  <a href="#" title="Lisbon">Portugal</a> ac lobortis nisi. Curabitur ipsum
+	  tellus, pretium nec mollis et, iaculis id magna. Donec et elit nisl.
+	  Morbi molestie pulvinar neque nec scelerisque.   Pellentesque nec hendrerit libero. </p>
+  </div>
+</div>
+</body>
+</html>

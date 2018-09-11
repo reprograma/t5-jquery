@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - Reprograma</title>
+
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="jquery.countdown.js"></script>
+
+    <style>
+        p {
+            text-align: center;
+            font-size: 60px;
+            margin-top: 0px;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('#clock').countdown('2018/05/05', function (event) {
+                $(this).html(event.strftime('%Dd %Hh %Mm'));
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <p id="clock"></p>
+
+</body>
+
+</html>

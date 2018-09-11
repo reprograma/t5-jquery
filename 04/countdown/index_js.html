@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        p {
+            text-align: center;
+            font-size: 60px;
+            margin-top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="demonstracao"></p>
+
+    <script>
+        // coloco a data fim
+        var dataFim = new Date("May 5, 2018 13:00:00").getTime();
+
+        // atualizado a cada um segundo
+        var x = setInterval(function () {
+
+            // preciso saber o dia de hoje
+            var hoje = new Date().getTime();
+
+            // encontro a diferença entre a dataFim e o dia de hoje
+            var diferenca = dataFim - hoje;
+
+            // calculando os dias, horas, minutos e segundos
+            var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            // colocar o resultado
+            document.getElementById("demonstracao").innerHTML = dias + "d " + horas + "h "
+                + minutos + "m " + segundos + "s ";
+
+            // se o tempo acabou, mostro algum texto padrão
+            if (diferenca < 0) {
+                clearInterval(x);
+                document.getElementById("demonstracao").innerHTML = "ACABOU";
+            }
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery - Reprograma</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script>
+
+        // $(document).ready(function () {
+        //     $('button').prop("disabled", false);
+        //     $('button').click(function (e) {
+        //         var ehValido = true;
+        //         $('input[type="text"], input[type="email"]').each(function () {
+        //             if ($.trim($(this).val()) == '') {
+        //                 ehValido = false;
+        //                 $(this).css({
+        //                     "border": "1px solid red",
+        //                     "background": "#FFCECE"
+        //                 });
+        //             }
+        //             else {
+        //                 $(this).css({
+        //                     "border": "",
+        //                     "background": ""
+        //                 });
+        //             }
+        //         });
+        //         if (ehValido == false)
+        //             e.preventDefault();
+        //         else
+        //             alert('Sucesso.');
+        //     });
+        // });
+
+        $(document).ready(function () {
+
+            // $("button").click(function() {
+            //     alert("cliquei");
+            // });
+
+            $('input').focus(function () {
+                // $(this).css('box-shadow', '3px 2px 4px #777');
+                $(this).css("border", "1px dotted #777");
+
+            });
+
+            $("input").blur(function () {
+                // $(this).css('box-shadow', 'none');
+                $(this).css('border', 'none');
+
+                if ($(this).hasClass('usuario_nome')) {
+                    var nome = $(this).val();
+                    if (nome.length > 3) {
+                        // $(this).css('box-shadow', 'none');
+                        $(this).css('border', 'none');
+                        $('#erro_nome').html('');
+                    } else {
+                        // $(this).css('box-shadow', 'none');
+                        $(this).css('border', '1px dotted red');
+                        $('#erro_nome').html('O nome deve conter mais do que 3 caracteres.');
+                    }
+                }
+
+            });
+
+            $('#perfil').change(function () {
+                console.log($("#perfil option:selected").text());
+            });
+
+            var inputValido = false;
+            var selectValido = false;
+
+            $("input, select").change(function () {
+
+                $('input').each(function () {
+                    if (!$(this).val() === 0) {
+                        $('button').prop("disabled", false);
+                    }
+                });
+                $('select').each(function () {
+                    if (!$(this).val() != '') {
+                        $('button').prop("disabled", false);
+                    }
+                });
+            });
+
+            // if ((inputValido == true) && (selectValido == true)) {
+            //     $('button').prop("disabled", false);
+            // }
+
+            $("form").submit(function () {
+                console.log($(this).serialize());
+            });
+
+        });
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <!-- <form action="javascript:alert('Seu formulário foi enviado com sucesso.');" method="post"> -->
+    <form action="#" method="post" id="#formCadastro">
+
+        <h1>Cadastre-se Reprograma</h1>
+
+        <fieldset>
+            <legend>
+                <span class="number">1</span>Informações Básicas</legend>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" class="usuario_nome" name="usuario_nome">
+            <span id="erro_nome"></span>
+
+            <label for="mail">Email:</label>
+            <input type="email" id="mail" class="usuario_email" name="usuario_email">
+
+            <!-- <label for="password">Senha:</label>
+            <input type="password" id="password" name="usuario_senha"> -->
+
+            <label>Idade:</label>
+            <input type="radio" id="abaixo_30" value="abaixo_30" name="usuario_idade" checked="checked">
+            <label for="abaixo_30" class="light">Abaixo de 30</label>
+            <br>
+            <input type="radio" id="acima_30" value="acima_30" name="usuario_idade">
+            <label for="acima_30" class="light">Igual ou Acima de 30</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                <span class="number">2</span>Perfil</legend>
+        </fieldset>
+        <fieldset>
+            <label for="perfil">Perfil Profissional:</label>
+            <select id="perfil" name="usuario_perfil">
+                <optgroup label="Web">
+                    <option value="frontend_developer">Front-End Developer</option>
+                    <option value="php_developor">PHP Developer</option>
+                    <option value="python_developer">Java Developer</option>
+                    <option value="rails_developer"> Rails Developer</option>
+                    <option value="web_designer">Web Designer</option>
+                    <option value="WordPress_developer">WordPress Developer</option>
+                </optgroup>
+                <optgroup label="Mobile">
+                    <option value="Android_developer">Android Developer</option>
+                    <option value="iOS_developer">iOS Developer</option>
+                    <option value="mobile_designer">Ionic Designer</option>
+                </optgroup>
+                <optgroup label="Outros">
+                    <option value="secretary">UX</option>
+                    <option value="maintenance">UI</option>
+                </optgroup>
+            </select>
+
+            <label>Interesses:</label>
+            <input type="checkbox" id="dev" value="interesse_dev" name="usuario_interesse">
+            <label class="light" for="dev">Desenvolvimento</label>
+            <br>
+            <input type="checkbox" id="design" value="interesse_design" name="usuario_interesse">
+            <label class="light" for="design">Design</label>
+            <br>
+            <input type="checkbox" id="negocios" value="interesse_negocios" name="usuario_interesse">
+            <label class="light" for="negocios">Negócios</label>
+
+        </fieldset>
+        <button type="submit" disabled>Cadastrar</button>
+    </form>
+
+</body>
+
+</html>

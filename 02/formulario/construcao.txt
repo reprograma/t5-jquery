@@ -1,0 +1,75 @@
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+=========================================
+== 1
+=========================================
+
+
+$('input').focus(function () {
+    // $(this).css('box-shadow', '3px 2px 4px #777');
+    $(this).css("border", "1px dotted #777");
+
+});
+
+
+
+=========================================
+== 2
+=========================================
+
+$("input").blur(function () {
+    // $(this).css('box-shadow', 'none');
+    $(this).css('border', 'none');
+
+    if ($(this).hasClass('usuario_nome')) {
+        var nome = $(this).val();
+        if (nome.length > 3) {
+            // $(this).css('box-shadow', 'none');
+            $(this).css('border', 'none');
+            $('#erro_nome').html('');
+        } else {
+            // $(this).css('box-shadow', 'none');
+            $(this).css('border', '1px dotted red');
+            $('#erro_nome').html('O nome deve conter mais do que 3 caracteres.');
+        }
+    }
+
+});
+
+
+
+=========================================
+== 3
+=========================================
+
+$('#perfil').change(function () {
+    console.log($("#perfil option:selected").text());
+});
+
+
+=========================================
+== 4
+=========================================
+
+ $("input, select").change(function () {
+    $('input').each(function () {
+        if ($(this).val() === 0) {
+            $('button').prop("disabled", false);
+        }
+    });
+    $('select').each(function () {
+        if ($(this).val() != '') {
+            $('button').prop("disabled", false);
+        }
+    });
+});
+
+
+=========================================
+== 5
+=========================================
+
+
+ $("form").submit(function () {
+    console.log($(this).serialize());
+});

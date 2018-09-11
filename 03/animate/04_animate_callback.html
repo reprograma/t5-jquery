@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#animate").click(function () {
+
+                $("#content").animate(
+
+                    { "height": "100px", "width": "250px" },
+
+                    "slow", function () {
+
+                        $(this).html("Animação feita.");
+
+                    });
+
+            });
+
+        });
+    </script>
+
+    <style type="text/css">
+        #content {
+            background-color: #00a458;
+            width: 300px;
+            height: 30px;
+            padding: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input id="animate" value="Clique" type="button">
+
+    <div id="content">Conteúdo</div>
+
+</body>
+
+</html>
